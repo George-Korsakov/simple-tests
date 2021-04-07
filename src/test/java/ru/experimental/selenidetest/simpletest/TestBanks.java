@@ -18,6 +18,7 @@ public class TestBanks extends TestBase{
     MainBankPage mainBankPage = new MainBankPage();
     CustomerLoginPage customerLoginPage = new CustomerLoginPage();
     CustomerMainPage customerMainPage = new CustomerMainPage();
+    ManagerMainPage managerMainPage = new ManagerMainPage();
 
     @Test
     public void testCustomer() {
@@ -135,6 +136,37 @@ public class TestBanks extends TestBase{
         //выход
         customerMainPage.clickButtonLogout();
         customerLoginPage.clickHomeButton();
+    }
+
+    @Test
+    public void testManagerPage () {
+        // генерация тестовыех данных
+        String lastname = generateRandomString(9);
+        String firstname = generateRandomString(7);
+        String index = String.valueOf((Math.random()*1000));
+
+        mainBankPage.clickButtonManager();
+        // добавление нового клиента
+        managerMainPage.clickButtonAddCustomer();
+        // вводим занчения в поля картчоки клиента
+        managerMainPage.setFirstName(firstname);
+        managerMainPage.setLastName(lastname);
+        managerMainPage.setPostCode(index);
+        // нажать кнопку подтверждения
+        managerMainPage.clickButtonSubmit();
+        // нажать кнопку ок в всплывающем окне с проверкой текста
+        managerMainPage.clickOKinNotificationNewCustomer();
+        // попытка добавление дубля клиента
+        managerMainPage.clickButtonAddCustomer();
+        managerMainPage.setFirstName(firstname);
+        managerMainPage.setLastName(lastname);
+        managerMainPage.setPostCode(index);
+        managerMainPage.clickButtonSubmit();
+        // нажать кнопку ок в всплывающем окне с проверкой текста
+        managerMainPage.clickOKinNotificationDuplicateCustomer();
+        // выход
+        managerMainPage.clickHomeButton();
+
     }
 
 

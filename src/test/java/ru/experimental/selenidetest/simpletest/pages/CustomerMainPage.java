@@ -73,6 +73,7 @@ public class CustomerMainPage extends TestBase
         List<WebElement> accounts = se.getOptions();
         return accounts.size();
     }
+
     // проверяем текст заголовка
     public void containsHeader (String bankName) {
         mainHeader.isDisplayed();
