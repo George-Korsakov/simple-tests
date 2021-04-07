@@ -164,6 +164,17 @@ public class TestBanks extends TestBase{
         managerMainPage.clickButtonSubmit();
         // нажать кнопку ок в всплывающем окне с проверкой текста
         managerMainPage.clickOKinNotificationDuplicateCustomer();
+
+        // открытие счета добавленному клиенту
+        managerMainPage.clickButtonOpenAccount();
+        managerMainPage.selectCustomerName(firstname + " " + lastname);
+        managerMainPage.selectCurrency("Dollar");
+        managerMainPage.clickButtonSubmit();
+        managerMainPage.clickOKinNotificationAccountCreate();
+        // удаление созданного клиента
+        managerMainPage.clickButtonCustomers();
+        managerMainPage.setValueAndSearchCustomer(firstname);
+        managerMainPage.clickButtonDel();
         // выход
         managerMainPage.clickHomeButton();
 
