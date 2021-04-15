@@ -4,8 +4,8 @@ package ru.experimental.selenidetest.simpletest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static java.lang.Thread.sleep;
 
 

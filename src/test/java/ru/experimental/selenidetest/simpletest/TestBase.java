@@ -2,7 +2,6 @@ package ru.experimental.selenidetest.simpletest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -10,7 +9,6 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.hasWebDriverStarted;
 
 public class TestBase {
@@ -50,4 +48,7 @@ public class TestBase {
                 .collect(Collectors.joining());
         return random;
     }
+
+
+
 }

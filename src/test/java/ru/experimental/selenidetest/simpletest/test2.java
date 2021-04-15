@@ -1,13 +1,11 @@
 package ru.experimental.selenidetest.simpletest;
 
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.hasWebDriverStarted;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Text;
 
 public class test2 {
 

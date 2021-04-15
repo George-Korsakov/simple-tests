@@ -1,11 +1,9 @@
 package ru.experimental.selenidetest.simpletest.pages;
 
-import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import ru.experimental.selenidetest.simpletest.TestBase;
 
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

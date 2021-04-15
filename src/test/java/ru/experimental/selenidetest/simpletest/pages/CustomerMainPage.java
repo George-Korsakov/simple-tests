@@ -1,15 +1,15 @@
 package ru.experimental.selenidetest.simpletest.pages;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.experimental.selenidetest.simpletest.TestBase;
 
-import static com.codeborne.selenide.Selectors.*;
+import java.util.List;
+
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import ru.experimental.selenidetest.simpletest.TestBase;
-
-import java.util.List;
 
 public class CustomerMainPage extends TestBase
 {

@@ -1,16 +1,14 @@
 package ru.experimental.selenidetest.simpletest.pages;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.experimental.selenidetest.simpletest.TestBase;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.*;
-import static java.lang.Math.random;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ManagerMainPage extends TestBase {

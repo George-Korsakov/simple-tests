@@ -3,7 +3,10 @@ package ru.experimental.selenidetest.simpletest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import ru.experimental.selenidetest.simpletest.pages.*;
+import ru.experimental.selenidetest.simpletest.pages.CustomerLoginPage;
+import ru.experimental.selenidetest.simpletest.pages.CustomerMainPage;
+import ru.experimental.selenidetest.simpletest.pages.MainBankPage;
+import ru.experimental.selenidetest.simpletest.pages.ManagerMainPage;
 
 import java.util.List;
 
@@ -11,7 +14,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBanks extends TestBase{
 
