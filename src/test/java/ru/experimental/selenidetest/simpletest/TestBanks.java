@@ -21,6 +21,7 @@ public class TestBanks extends TestBase{
     CustomerLoginPage customerLoginPage = new CustomerLoginPage();
     CustomerMainPage customerMainPage = new CustomerMainPage();
     ManagerMainPage managerMainPage = new ManagerMainPage();
+    SimpleDB simpleDB = new SimpleDB();
 
     @Test
     public void testCustomer() {
@@ -182,5 +183,13 @@ public class TestBanks extends TestBase{
 
     }
 
+    @Test
+    public void simpleTestDB() {
+    String resQuery = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID = '1109000000001'");
+    System.out.println("TEST1 = " + resQuery);
 
+    String resQuery2 = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID > '1109000000001'");
+    System.out.println("TEST2 = " + resQuery2);
+
+    }
 }

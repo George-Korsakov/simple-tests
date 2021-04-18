@@ -60,6 +60,14 @@
       <version>1.7.30</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc</artifactId>
+      <version>8</version>
+      <scope>system</scope>
+      <systemPath>/opt/sqldeveloper/jdbc/lib/ojdbc8.jar</systemPath> <!-- must match file name -->
+    </dependency>
   </dependencies>
+
 
 </project>
