@@ -185,6 +185,7 @@ public class TestBanks extends TestBase{
 
     @Test
     public void simpleTestDB() {
+        // записываем в переменную результат выполенения SQL запроса
     String resQuery = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID = '1109000000001'");
     System.out.println("TEST1 = " + resQuery);
 

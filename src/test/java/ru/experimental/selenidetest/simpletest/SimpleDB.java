@@ -6,36 +6,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Simple Java program to connect to MySQL database running on localhost and
- * running SELECT and INSERT query to retrieve and add data.
- * @author Javin Paul
- */
+
 public class SimpleDB extends TestBase {
 
-    // JDBC URL, username and password of SQL server
+    // параметры подключения JDBC URL, username and password
     private static final String url = "jdbc:oracle:thin:@localhost:49161";
     private static final String user = "system";
     private static final String password = "oracle";
 
-    // JDBC variables for opening and managing connection
+    // JDBC переменные для установки и управления подключением
     private static Connection con;
     private static Statement stmt;
     private static ResultSet rs;
 
-    public static void main(String args[]) {
+    public  void countSQLRequest() {
         String query = "select count(*) from bank_customers";
 
         try {
-            // opening database connection to MySQL server
+            // установка соединения с БД
             con = DriverManager.getConnection(url, user, password);
 
-            // getting Statement object to execute query
             stmt = con.createStatement();
 
-            // executing SELECT query
+            // выполенения SELECT запроса
             rs = stmt.executeQuery(query);
-
+            // счетчик
             while (rs.next()) {
                 int count = rs.getInt(1);
                 System.out.println("Total number of bank_customers in the table : " + count);
@@ -54,15 +49,14 @@ public class SimpleDB extends TestBase {
     public String firstRowQueryDB(String query) {
 
         try {
-            // opening database connection to MySQL server
+            // устанавливаекм соединение
             con = DriverManager.getConnection(url, user, password);
 
-            // getting Statement object to execute query
             stmt = con.createStatement();
 
-            // executing SELECT query
+            // выполнение SELECT запроса
             rs = stmt.executeQuery(query);
-
+            // получаем результат запроса
             while (rs.next()) {
                 String result = rs.getString(1);
                 System.out.println("Debug SQL query return : " + result);
