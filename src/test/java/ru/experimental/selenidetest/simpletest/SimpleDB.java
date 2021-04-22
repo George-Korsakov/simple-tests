@@ -1,10 +1,14 @@
 package ru.experimental.selenidetest.simpletest;
 
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+import java.util.Map;
 
 
 public class SimpleDB extends TestBase {
@@ -65,19 +69,47 @@ public class SimpleDB extends TestBase {
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
-            //close connection ,stmt and resultset here
+            // закрываем соединение
             try {
                 con.close();
-            } catch (SQLException se) { /*can't do anything */ }
+            } catch (SQLException se) { System.out.println("Db connection close"); }
             try {
                 stmt.close();
-            } catch (SQLException se) { /*can't do anything */ }
+            } catch (SQLException se) { System.out.println("Db connection close"); }
             try {
                 rs.close();
-            } catch (SQLException se) { /*can't do anything */ }
+            } catch (SQLException se) { System.out.println("Db connection close"); }
 
         }
         return " ";
+    }
+
+    public String queryStringInDB (String query, String column ) {
+        String result = "null";
+        try {
+            // устанавливаекм соединение
+            con = DriverManager.getConnection(url, user, password);
+            // выполнение SELECT запроса
+            rs = stmt.executeQuery(query);
+            // получаем результат запроса
+             result = rs.getString(column);
+            return result;
+            }catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+            return result;
+            } finally {
+
+            // закрываем соединение
+            try {
+                con.close();
+            } catch (SQLException se) { System.out.println("Db connection close error"); }
+            try {
+                stmt.close();
+            } catch (SQLException se) { System.out.println("Db connection close error"); }
+            try {
+                rs.close();
+            } catch (SQLException se) { System.out.println("Db connection close error" ); }
+        }
     }
 
 }

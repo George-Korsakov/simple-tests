@@ -186,11 +186,33 @@ public class TestBanks extends TestBase{
     @Test
     public void simpleTestDB() {
         // записываем в переменную результат выполенения SQL запроса
+
     String resQuery = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID = '1109000000001'");
     System.out.println("TEST1 = " + resQuery);
 
     String resQuery2 = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID > '1109000000001'");
     System.out.println("TEST2 = " + resQuery2);
 
+    }
+
+    @Test
+    public void testCreateNewCustomer () {
+        // получение случайной строки с тестовыми данными из БД
+        String Id = simpleDB.firstRowQueryDB("SELECT * FROM (SELECT CUSTOMER_ID FROM bank_customers ORDER BY dbms_random.value) WHERE rownum < 2 ");
+        String lastname = simpleDB.firstRowQueryDB("SELECT LAST_NAME FROM bank_customers WHERE CUSTOMER_ID = '"+ Id + "'");
+        String firstname = simpleDB.firstRowQueryDB("SELECT FIRST_NAME FROM bank_customers WHERE CUSTOMER_ID = '"+ Id + "'");
+        String index = simpleDB.firstRowQueryDB("SELECT POST_CODE FROM bank_customers WHERE CUSTOMER_ID = '"+ Id + "'");
+        System.out.println("Query DB result test data:" + Id + " " + lastname + " " + firstname + " " + index);
+        mainBankPage.clickButtonManager();
+        // добавление нового клиента
+        managerMainPage.clickButtonAddCustomer();
+        // вводим занчения в поля картчоки клиента
+        managerMainPage.setFirstName(firstname);
+        managerMainPage.setLastName(lastname);
+        managerMainPage.setPostCode(index);
+        // нажать кнопку подтверждения
+        managerMainPage.clickButtonSubmit();
+        // нажать кнопку ок в всплывающем окне с проверкой текста
+        managerMainPage.clickOKinNotificationNewCustomer();
     }
 }
