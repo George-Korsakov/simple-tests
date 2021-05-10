@@ -39,13 +39,13 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.7.0</version>
+      <version>5.7.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.18.0</version>
+      <version>5.20.4</version> <!-- 5.18.0 - 5.20.4 -->
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -65,7 +65,20 @@
       <artifactId>ojdbc</artifactId>
       <version>8</version>
       <scope>system</scope>
-      <systemPath>/opt/sqldeveloper/jdbc/lib/ojdbc8.jar</systemPath> <!-- must match file name -->
+      <systemPath>/opt/sqldeveloper/jdbc/lib/ojdbc8.jar</systemPath>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>4.3.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

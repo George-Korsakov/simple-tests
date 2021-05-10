@@ -11,7 +11,7 @@ import static java.lang.Thread.sleep;
 
 public class test1 {
     @Test
-    public void test1() {
+    public void testApi1() {
         // Configuration.browser ="firefox";
         //Configuration.timeout = 5000;
 
