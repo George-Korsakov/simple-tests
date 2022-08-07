@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.experimental.selenidetest.simpletest.TestBase;
-import unirest.shaded.com.google.gson.Gson;
+import unirest.shaded.com.google.gson.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +69,7 @@ public class TestRestApi extends TestBase {
     @Tag("api")
     void testGetPetById(){
         Unirest.config().defaultBaseUrl("https://petstore.swagger.io/v2").verifySsl(false);
-        String petId = "9223372036854057000";
+        String petId = "9223372036854058000";
 
         Map r = Unirest.get("/pet/" + petId ).asObject(i -> new Gson().fromJson(i.getContentReader(), HashMap.class))
                 .getBody();
@@ -83,13 +83,23 @@ public class TestRestApi extends TestBase {
         System.out.println("Значения: " + values);
         System.out.println(" ***** TEST ***** \n");
 
-        //assertEquals(r.get("id").toString(), petId, "Compare id value responce and request");
+        //assertEquals(r.get("id").toString(), petId, "Compare id value responce and request"); // error get integer value from responce Json
 
         HttpResponse<String> response = Unirest.get("/pet/" + petId).asString();
 
         System.out.println("TEST: " + response.getStatus() + " " + response.getStatusText());
         System.out.println("TEST: " + response.getBody() );
 
+        // примери парсинга Json ответа с массивом
+        JsonObject jobject = JsonParser.parseString(response.getBody()).getAsJsonObject();
+        String respId = jobject.get("id").getAsString();
+        // получаем массив и значние из него
+        JsonArray jarray = jobject.getAsJsonArray("tags");
+        JsonObject joTag = jarray.get(0).getAsJsonObject();
+        String nameTag = joTag.get("name").toString();
+
+        System.out.println("TEST parse responce json " + nameTag + " " + respId);
+        assertEquals(petId, respId, "Compare id value responce and request");
     }
 
 }
