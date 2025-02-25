@@ -22,7 +22,7 @@ public class TestBanks extends TestBase{
     CustomerMainPage customerMainPage = new CustomerMainPage();
     ManagerMainPage managerMainPage = new ManagerMainPage();
     SimpleDB simpleDB = new SimpleDB();
-
+// AI асистент написал бы это быстрее и лучше, чем когда я учился )))
     @Test
     public void testCustomer() {
         String name  = "Harry Potter";
@@ -195,7 +195,7 @@ public class TestBanks extends TestBase{
 
     }
 
-    @Test
+    @Test 
     public void testCreateNewCustomer () {
         // получение случайной строки с тестовыми данными из БД
         String Id = simpleDB.firstRowQueryDB("SELECT * FROM (SELECT CUSTOMER_ID FROM bank_customers ORDER BY dbms_random.value) WHERE rownum < 2 ");
